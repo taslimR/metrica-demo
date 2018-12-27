@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import * as Home from '../home/Metrica';
 
 class Metrica extends Component {
   state = {
@@ -182,6 +184,10 @@ class Metrica extends Component {
             </div>
           </form>
         </div>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Redirect to="/home" />
+        </Switch>
       </div>
     );
   }
