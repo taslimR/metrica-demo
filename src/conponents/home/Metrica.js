@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import * as Home from '../home/Metrica';
 
 class Metrica extends Component {
   state = {
@@ -14,7 +12,7 @@ class Metrica extends Component {
             <div className="border border-dark mb-3">
               <div className="m-3">
                 <div className="form-group row">
-                  <label for="inputMonth" className="col-sm-2 col-form-label">
+                  <label htmlFor="inputMonth" className="col-sm-2 col-form-label">
                     Month
                   </label>
                   <div className="col-sm-10">
@@ -44,14 +42,14 @@ class Metrica extends Component {
                               name="gridRadios"
                               id="gridRadios1"
                               value="bank"
-                              checked={this.state.selected === 'bank'}
+                              defaultChecked={this.state.selected === 'bank'}
                               onChange={() =>
                                 this.setState({ selected: 'bank' })
                               }
                             />
                             <label
                               className="form-check-label"
-                              for="gridRadios1">
+                              htmlFor="gridRadios1">
                               Bank
                             </label>
                           </div>
@@ -65,14 +63,13 @@ class Metrica extends Component {
                               name="gridRadios"
                               id="gridRadios2"
                               value="cheque"
-                              checked={this.state.selected === 'cheque'}
                               onChange={() =>
                                 this.setState({ selected: 'cheque' })
                               }
                             />
                             <label
                               className="form-check-label"
-                              for="gridRadios2">
+                              htmlFor="gridRadios2">
                               Cheque
                             </label>
                           </div>
@@ -85,14 +82,13 @@ class Metrica extends Component {
                               name="gridRadios"
                               id="gridRadios3"
                               value="cash"
-                              checked={this.state.selected === 'cash'}
                               onChange={() => {
                                 this.setState({ selected: 'cash' });
                               }}
                             />
                             <label
                               className="form-check-label"
-                              for="gridRadios3">
+                              htmlFor="gridRadios3">
                               Cash
                             </label>
                           </div>
@@ -117,9 +113,9 @@ class Metrica extends Component {
                                 name="filter"
                                 id="filter1"
                                 value="option1"
-                                checked
+                                defaultChecked
                               />
-                              <label className="form-check-label" for="filter1">
+                              <label className="form-check-label" htmlFor="filter1">
                                 None
                               </label>
                             </div>
@@ -133,7 +129,7 @@ class Metrica extends Component {
                                 id="filter2"
                                 value="option2"
                               />
-                              <label className="form-check-label" for="filter2">
+                              <label className="form-check-label" htmlFor="filter2">
                                 BdREN
                               </label>
                             </div>
@@ -147,7 +143,7 @@ class Metrica extends Component {
                                 id="filter3"
                                 value="option3"
                               />
-                              <label className="form-check-label" for="filter3">
+                              <label className="form-check-label" htmlFor="filter3">
                                 Software Services
                               </label>
                             </div>
@@ -158,7 +154,7 @@ class Metrica extends Component {
                   </fieldset>
                 ) : (
                   <div className="form-group row">
-                    <label for="inputMonth" className="col-sm-2 col-form-label">
+                    <label htmlFor="inputMonth" className="col-sm-2 col-form-label">
                       Wing
                     </label>
                     <div className="col-sm-10">
@@ -177,17 +173,13 @@ class Metrica extends Component {
             </div>
             <div className="form-group row">
               <div className="col-sm-12">
-                <button type="submit" className="btn btn-primary float-right">
+                <button className="btn btn-primary float-right">
                   Generate Advice
                 </button>
               </div>
             </div>
           </form>
         </div>
-        <Switch>
-          <Route path="/home" component={Home} />
-          <Redirect to="/home" />
-        </Switch>
       </div>
     );
   }
