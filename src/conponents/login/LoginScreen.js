@@ -4,7 +4,8 @@ import {
   Route,
   Link,
   Redirect,
-  withRouter
+  withRouter,
+  DefaultRoute
 } from 'react-router-dom';
 import Metrica from '../home/Metrica';
 import './LoginScreen.css';
@@ -23,6 +24,7 @@ function AuthExample() {
         <Route path="/public" component={Public} />
         <Route path="/login" component={Login} />
         <PrivateRoute path="/home" component={Protected} />
+        <Redirect from="/" to="/login" />
       </div>
     </Router>
   );
