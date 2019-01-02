@@ -4,8 +4,7 @@ import {
   Route,
   Link,
   Redirect,
-  withRouter,
-  DefaultRoute
+  withRouter
 } from 'react-router-dom';
 import Metrica from '../home/Metrica';
 import './LoginScreen.css';
