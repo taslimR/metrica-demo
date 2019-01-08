@@ -9,21 +9,14 @@ import {
 import Metrica from '../home/Metrica';
 import './LoginScreen.css';
 
-////////////////////////////////////////////////////////////
-// 1. Click the public page
-// 2. Click the protected page
-// 3. Log in
-// 4. Click the back button, note the URL each time
-
 function AuthExample() {
   return (
     <Router>
       <div className="container">
         <AuthButton />
-        <Route path="/public" component={Public} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/home" component={Protected} />
-        <Redirect from="/" to="/login" />
+        <Route path="/" component={Login} />
+        <PrivateRoute path="/" component={Metrica} />
+        {/* <Redirect from="/" to="/" /> */}
       </div>
     </Router>
   );
@@ -70,22 +63,13 @@ function PrivateRoute({ component: Component, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
-              state: { from: props.location }
+              pathname: '/'
             }}
           />
         )
       }
     />
   );
-}
-
-function Public() {
-  return <h3>Public</h3>;
-}
-
-function Protected() {
-  return <Metrica />;
 }
 
 class Login extends React.Component {
@@ -98,8 +82,8 @@ class Login extends React.Component {
   };
 
   render() {
-    let { from } = { from: { pathname: '/login' } } || {
-      from: { pathname: '/login' }
+    let { from } = { from: { pathname: '/' } } || {
+      from: { pathname: '/' }
     };
     let { redirectToReferrer } = this.state;
 
